@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Make Prediction</title>
+    <style>
+        /* Optional styles */
+        body, html {
+            height: 135%;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Centering the parent container */
+        .container {
+            display: flex; 
+            justify-content: center;
+            align-items: center;
+            height: 100%; /* Full height of the viewport */
+            text-align: center; /* Center children horizontally */
+        }
+
+        /* Styling the div */
+        .centered-div {
+            background-color: #f0f0f0;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="centered-div">
+    <h2>Make Prediction</h2>
+    <form method="post">
+        {% csrf_token %}
+        
+        <label for="scaled_amount">Scaled Amount:</label>
+        <input type="range" id="scaled_amount" name="scaled_amount" min="-0.3" max="102.3" step="0.1" onchange="updateSliderValue('scaled_amount')">
+        <span id="scaled_amountValue">0</span><br><br>
+
+        <label for="scaled_time">Scaled Time:</label>
+        <input type="range" id="scaled_time" name="scaled_time" min="-1.9" max="1.6" step="0.1" onchange="updateSliderValue('scaled_time')">
+        <span id="scaled_timeValue">0</span><br><br>
+
+        <label for="v1">V1:</label>
+        <input type="range" id="v1" name="v1" min="-56.4" max="2.4" step="0.1" onchange="updateSliderValue('v1')">
+        <span id="v1Value">0</span><br><br>
+
+        <label for="v2">V2:</label>
+        <input type="range" id="v2" name="v2" min="-72.7" max="22.0" step="0.1" onchange="updateSliderValue('v2')">
+        <span id="v2Value">0</span><br><br>
+
+        <label for="v3">V3:</label>
+        <input type="range" id="v3" name="v3" min="-48.3" max="9.3" step="0.1" onchange="updateSliderValue('v3')">
+        <span id="v3Value">0</span><br><br>
+
+        <label for="v4">V4:</label>
+        <input type="range" id="v4" name="v4" min="-5.6" max="16.8" step="0.1" onchange="updateSliderValue('v4')">
+        <span id="v4Value">0</span><br><br>
+
+        <label for="v5">V5:</label>
+        <input type="range" id="v5" name="v5" min="-113.7" max="34.8" step="0.1" onchange="updateSliderValue('v5')">
+        <span id="v5Value">0</span><br><br>
+
+        <label for="v6">V6:</label>
+        <input type="range" id="v6" name="v6" min="-26.1" max="73.3" step="0.1" onchange="updateSliderValue('v6')">
+        <span id="v6Value">0</span><br><br>
+
+        <label for="v7">V7:</label>
+        <input type="range" id="v7" name="v7" min="-43.5" max="120.5" step="0.1" onchange="updateSliderValue('v7')">
+        <span id="v7Value">0</span><br><br>
+
+        <label for="v8">V8:</label>
+        <input type="range" id="v8" name="v8" min="-73.2" max="20.0" step="0.1" onchange="updateSliderValue('v8')">
+        <span id="v8Value">0</span><br><br>
+
+        <label for="v9">V9:</label>
+        <input type="range" id="v9" name="v9" min="-13.4" max="15.5" step="0.1" onchange="updateSliderValue('v9')">
+        <span id="v9Value">0</span><br><br>
+
+        <label for="v10">V10:</label>
+        <input type="range" id="v10" name="v10" min="-24.5" max="23.7" step="0.1" onchange="updateSliderValue('v10')">
+        <span id="v10Value">0</span><br><br>
+
+        <label for="v11">V11:</label>
+        <input type="range" id="v11" name="v11" min="-4.7" max="12.0" step="0.1" onchange="updateSliderValue('v11')">
+        <span id="v11Value">0</span><br><br>
+
+        <label for="v12">V12:</label>
+        <input type="range" id="v12" name="v12" min="-18.6" max="7.8" step="0.1" onchange="updateSliderValue('v12')">
+        <span id="v12Value">0</span><br><br>
+
+        <label for="v13">V13:</label>
+        <input type="range" id="v13" name="v13" min="-5.7" max="7.1" step="0.1" onchange="updateSliderValue('v13')">
+        <span id="v13Value">0</span><br><br>
+
+        <label for="v14">V14:</label>
+        <input type="range" id="v14" name="v14" min="-19.2" max="10.5" step="0.1" onchange="updateSliderValue('v14')">
+        <span id="v14Value">0</span><br><br>
+
+        <label for="v15">V15:</label>
+        <input type="range" id="v15" name="v15" min="-4.4" max="8.8" step="0.1" onchange="updateSliderValue('v15')">
+        <span id="v15Value">0</span><br><br>
+
+        <label for="v16">V16:</label>
+        <input type="range" id="v16" name="v16" min="-14.1" max="17.3" step="0.1" onchange="updateSliderValue('v16')">
+        <span id="v16Value">0</span><br><br>
+
+        <label for="v17">V17:</label>
+        <input type="range" id="v17" name="v17" min="-25.1" max="9.2" step="0.1" onchange="updateSliderValue('v17')">
+        <span id="v17Value">0</span><br><br>
+
+        <label for="v18">V18:</label>
+        <input type="range" id="v18" name="v18" min="-9.4" max="5.0" step="0.1" onchange="updateSliderValue('v18')">
+        <span id="v18Value">0</span><br><br>
+
+        <label for="v19">V19:</label>
+        <input type="range" id="v19" name="v19" min="-7.2" max="5.5" step="0.1" onchange="updateSliderValue('v19')">
+        <span id="v19Value">0</span><br><br>
+
+        <label for="v20">V20:</label>
+        <input type="range" id="v20" name="v20" min="-54.4" max="39.4" step="0.1" onchange="updateSliderValue('v20')">
+        <span id="v20Value">0</span><br><br>
+
+        <label for="v21">V21:</label>
+        <input type="range" id="v21" name="v21" min="-34.8" max="100" step="27.2" onchange="updateSliderValue('v21')">
+        <span id="v21Value">0</span><br><br>
+
+        <label for="v22">V22:</label>
+        <input type="range" id="v22" name="v22" min="-10.9" max="10.5" step="0.1" onchange="updateSliderValue('v22')">
+        <span id="v22Value">0</span><br><br>
+
+        <label for="v23">V23:</label>
+        <input type="range" id="v23" name="v23" min="-44.8" max="22.5" step="0.1" onchange="updateSliderValue('v23')">
+        <span id="v23Value">0</span><br><br>
+
+        <label for="v24">V24:</label>
+        <input type="range" id="v24" name="v24" min="-2.8" max="4.5" step="0.1" onchange="updateSliderValue('v24')">
+        <span id="v24Value">0</span><br><br>
+
+        <label for="v25">V25:</label>
+        <input type="range" id="v25" name="v25" min="-10.2" max="7.5" step="0.1" onchange="updateSliderValue('v25')">
+        <span id="v25Value">0</span><br><br>
+
+        <label for="v26">V26:</label>
+        <input type="range" id="v26" name="v26" min="-2.6" max="3.5" step="0.1" onchange="updateSliderValue('v26')">
+        <span id="v26Value">0</span><br><br>
+
+        <label for="v27">V27:</label>
+        <input type="range" id="v27" name="v27" min="-22.5" max="31.6" step="0.1" onchange="updateSliderValue('v27')">
+        <span id="v27Value">0</span><br><br>
+
+        <label for="v28">V28:</label>
+        <input type="range" id="v28" name="v28" min="-15.4" max="33.8" step="0.1" onchange="updateSliderValue('v28')">
+        <span id="v28Value">0</span><br><br>
+
+        <button type="submit">Predict</button>
+    </form>
+
+    <div id="output">
+        {% if output %}
+            <p>Output: {{ output }}</p>
+        {% endif %}
+    </div>
+    <a href="{% url "base:logout" %}">logout</a>
+</div>
+</div>
+    <script>
+        function updateSliderValue(sliderId) {
+            var slider = document.getElementById(sliderId);
+            var valueDisplay = document.getElementById(sliderId + 'Value');
+            valueDisplay.textContent = slider.value;
+        }
+        </script>
+</body>
+</html>
