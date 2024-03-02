@@ -9,8 +9,22 @@
 <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&display=swap" rel="stylesheet">
  {% load static %}
  <link rel="stylesheet" href="{% static "css/style.css" %}">
+ <style>
+  body, html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+  body {
+    background-image: url('https://aihubprojects.com/wp-content/uploads/2020/01/ccfd-scaled.jpeg'); /* Replace 'background.jpg' with your image */
+    background-size: cover;
+    background-position: center;
+}
+</style>
+
 </head>
-<body>
+<body class="shadow-wrap">
+  
   {% block content %}{% endblock content %}
 </body>
 </html>
