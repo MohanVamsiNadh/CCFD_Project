@@ -3,11 +3,6 @@ click==8.1.7
 colorama==0.4.6
 Django==4.2.2
 joblib==1.3.2
-nltk==3.8.1
-numpy==1.26.4
-regex==2023.12.25
-scikit-learn==1.2.2
-scipy==1.12.0
 sqlparse==0.4.4
 threadpoolctl==3.3.0
 tqdm==4.66.2
